@@ -1,5 +1,5 @@
 // Replace with the actual Render URL from your dashboard
-const BACKEND_URL = "https://your-backend.onrender.com";
+const BACKEND_URL = "https://newb-dl9k.onrender.com";
 
 document.getElementById("questionForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -22,3 +22,4 @@ document.getElementById("questionForm").addEventListener("submit", async (e) => 
       "Error contacting server. Please try again.";
   }
 });
+
