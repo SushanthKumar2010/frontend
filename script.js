@@ -121,3 +121,18 @@ questionInput.addEventListener("keydown", (e) => {
     sendQuestion();
   }
 });
+
+// Replace localhost or relative paths with:
+const BACKEND_URL = "https://backend-x8xj-2ign4lu2g-bandaru-sushanth-kumars-projects.vercel.app";
+
+fetch(`${BACKEND_URL}/api/ask`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    subject: subject,
+    chapter: chapter,
+    question: question
+  })
+})
+
+
