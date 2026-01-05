@@ -147,31 +147,47 @@ if (questionForm) {
 
   // SUPABASE//////////////////////////
 
-<script type="module">
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0cXVhanlkaml0ZmpocXZlemZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc2MjA1MzQsImV4cCI6MjA4MzE5NjUzNH0.3cenuqB4XffJdRQisJQhq7PS9_ybXDN7ExbsKfXx9gU";
+  const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";
 
-const supabase = createClient(
-  "https://ctquajydjitfjhqvezfz.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0cXVhanlkaml0ZmpocXZlemZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc2MjA1MzQsImV4cCI6MjA4MzE5NjUzNH0.3cenuqB4XffJdRQisJQhq7PS9_ybXDN7ExbsKfXx9gU"
-);
+  const supabase = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+</script>
 
-const form = document.querySelector(".login-form");
+<script>
+async function login() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const email = document.querySelector('input[type="text"]').value;
-  const password = document.querySelector('input[type="password"]').value;
-
-  const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
-
-  if (error) {
-    alert(error.message);
-  } else {
-    window.location.href = "/dashboard.html";
+  if (!username || !password) {
+    alert("Enter username and password");
+    return;
   }
-});
+
+  // Fetch user by username
+  const { data, error } = await supabase
+    .from("Users")
+    .select("password")
+    .eq("username", username)
+    .single();
+
+  if (error || !data) {
+    alert("User not found");
+    return;
+  }
+
+  // Compare password using bcrypt
+  const isValid = dcodeIO.bcrypt.compareSync(password, data.password);
+
+  if (isValid) {
+    alert("Login successful ✅");
+    // window.location.href = "dashboard.html";
+  } else {
+    alert("Wrong password ❌");
+  }
+}
 </script>
