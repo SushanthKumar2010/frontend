@@ -141,12 +141,13 @@ if (questionForm) {
 }
 
 /*********************************************************
- * SUPABASE LOGIN LOGIC (CORRECT WAY)
+ * SUPABASE LOGIN (PRODUCTION SAFE)
  *********************************************************/
 
-// ⚠️ REPLACE with values from Supabase → Settings → API
+// Supabase config
 const SUPABASE_URL = "https://ctquajydjitfjhqvezfz.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0cXVhanlkaml0ZmpocXZlemZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc2MjA1MzQsImV4cCI6MjA4MzE5NjUzNH0.3cenuqB4XffJdRQisJQhq7PS9_ybXDN7ExbsKfXx9gU";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0cXVhanlkaml0ZmpocXZlemZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc2MjA1MzQsImV4cCI6MjA4MzE5NjUzNH0.3cenuqB4XffJdRQisJQhq7PS9_ybXDN7ExbsKfXx9gU";
 
 // Create client
 const supabaseClient = supabase.createClient(
@@ -156,39 +157,34 @@ const supabaseClient = supabase.createClient(
 
 // Login function
 async function login() {
-  const usernameInput = document.getElementById("username");
+  const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
 
-  if (!usernameInput || !passwordInput) {
+  if (!emailInput || !passwordInput) {
     alert("Login inputs not found");
     return;
   }
 
-  const username = usernameInput.value.trim();
+  const email = emailInput.value.trim();
   const password = passwordInput.value;
 
-  if (!username || !password) {
-    alert("Enter username and password");
+  if (!email || !password) {
+    alert("Please enter email and password");
     return;
   }
 
-  const { data, error } = await supabaseClient
-    .from("Users")
-    .select("password")
-    .eq("username", username)
-    .single();
+  const { data, error } =
+    await supabaseClient.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-  if (error || !data) {
-    alert("User not found");
+  if (error) {
+    alert("❌ Wrong email or password");
     return;
   }
 
-  const isValid = bcrypt.compareSync(password, data.password);
-
-  if (isValid) {
-    alert("Login successful ✅");
-    // window.location.href = "dashboard.html";
-  } else {
-    alert("Wrong password ❌");
-  }
+  alert("✅ Login successful");
+  // window.location.href = "dashboard.html";
 }
+
