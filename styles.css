@@ -181,48 +181,51 @@ body {
   }
 }
 /* ===========================
-   CONTACT-STYLE LOGIN PAGE
+   RESPONSIVE BIG LOGIN CARD
    =========================== */
 
 .login-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 48px 16px;
+  align-items: center;
+  padding: 32px 16px;
 }
 
-.login-box {
+/* BIG CARD */
+.login-card {
   width: 100%;
-  max-width: 720px;        /* SAME WIDTH as contact form */
+  max-width: 880px;              /* BIG on desktop */
   background: #020617;
-  border-radius: 14px;
-  padding: 36px 40px;
+  border-radius: 24px;           /* smooth & premium */
+  padding: 48px 56px;
   border: 1px solid #1f2937;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
 /* Title */
 .login-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
-/* Divider like contact page */
+/* Divider */
 .login-divider {
   height: 1px;
   background: #1f2937;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
-/* Form */
+/* Form layout */
 .login-form {
+  max-width: 520px;              /* form doesn't stretch too wide */
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 24px;
 }
 
+/* Fields */
 .login-field {
   display: flex;
   flex-direction: column;
@@ -230,17 +233,16 @@ body {
 }
 
 .login-field label {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #e5e7eb;
 }
 
-/* Big rounded inputs */
 .login-field input {
-  height: 48px;
-  border-radius: 999px; /* pill-shaped like image */
-  padding: 0 18px;
-  font-size: 0.95rem;
+  height: 52px;
+  border-radius: 999px;
+  padding: 0 20px;
+  font-size: 1rem;
   border: 1px solid #374151;
   background: #020617;
   color: #e5e7eb;
@@ -253,30 +255,36 @@ body {
 }
 
 /* Button */
-.login-submit {
+.login-btn {
   margin-top: 10px;
   width: fit-content;
-  padding: 12px 26px;
+  padding: 14px 34px;
   border-radius: 999px;
   border: none;
   background: #2563eb;
   color: #f9fafb;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
 }
 
-.login-submit:hover {
+.login-btn:hover {
   background: #1d4ed8;
 }
 
-/* Mobile */
-@media (max-width: 640px) {
-  .login-box {
-    padding: 28px 22px;
+/* MOBILE */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 32px 24px;
+    border-radius: 18px;
+  }
+
+  .login-form {
+    max-width: 100%;
   }
 
   .login-title {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 }
+
