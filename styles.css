@@ -242,21 +242,34 @@ body {
 }
 
 /* =====================================================
-   MOBILE POLISH
+   MOBILE – PROPER EDGE SPACING
 ===================================================== */
 @media (max-width: 640px) {
   body {
     align-items: stretch;
+    padding:
+      env(safe-area-inset-top)
+      env(safe-area-inset-right)
+      env(safe-area-inset-bottom)
+      env(safe-area-inset-left);
   }
 
   .app-container {
     max-width: 100%;
-    height: 100vh;
-    border-radius: 0;
-    padding: 18px;
+    height: 100%;
+    border-radius: 14px;
+
+    /* REAL mobile spacing */
+    margin: 12px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .controls {
+    padding: 14px;
     gap: 14px;
   }
 
@@ -265,18 +278,40 @@ body {
   }
 
   .control-group select {
-    height: 44px;
-    font-size: 0.9rem;
+    height: 46px;
+    font-size: 0.95rem;
+  }
+
+  .chat-section {
+    padding: 12px;
   }
 
   .chat-window {
-    height: 60vh;
+    height: 58vh; /* balanced: long but not overwhelming */
+    padding: 10px;
+    gap: 14px;
+  }
+
+  .message-bubble {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .input-area {
+    gap: 10px;
   }
 
   #questionInput {
-    height: 48px;
+    height: 50px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  #sendBtn {
+    padding: 0 18px;
   }
 }
+
 
 
 /* ===========================
@@ -414,6 +449,7 @@ body {
   transform: translateY(0);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
+
 
 
 
