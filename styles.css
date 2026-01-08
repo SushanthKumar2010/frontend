@@ -1,58 +1,115 @@
-/* ===============================
-   RESET + BASE THEME
-================================ */
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: linear-gradient(135deg, #0f172a, #1e293b);
-  min-height: 100vh;
+  color: #e5e7eb;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #e5e7eb;
 }
 
-/* ===============================
+/* =====================================================
    APP CONTAINER
-================================ */
+===================================================== */
 .app-container {
   width: 100%;
   max-width: 560px; /* thinner for readability */
   background: #020617;
   border-radius: 14px;
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
   box-shadow:
     0 25px 50px rgba(0,0,0,.45),
     inset 0 1px 0 rgba(255,255,255,.03);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
-/* ===============================
+/* =====================================================
    HEADER
-================================ */
+===================================================== */
 .app-header h1 {
   font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: .2px;
 }
 
 .app-header p {
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: #9ca3af;
 }
 
-/* ===============================
-   CHAT SECTION
-================================ */
-.chat-section {
+/* =====================================================
+   CONTROLS / DROPDOWNS
+===================================================== */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px;
   background: #020617;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 140px;
+}
+
+.control-group label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+/* Dropdown */
+.control-group select {
+  appearance: none;
+  height: 40px;
+  padding: 0 38px 0 12px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+
+  background-color: #020617;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%239ca3af' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+
+  transition: border .2s ease, box-shadow .2s ease;
+}
+
+.control-group select:hover {
+  border-color: #4b5563;
+}
+
+.control-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37,99,235,.25);
+}
+
+/* =====================================================
+   CHAT SECTION
+===================================================== */
+.chat-section {
   border: 1px solid #1f2937;
   border-radius: 12px;
   padding: 10px;
@@ -60,7 +117,7 @@ body {
   flex-direction: column;
 }
 
-/* Chat window (lengthier, not wider) */
+/* Taller, not wider */
 .chat-window {
   height: 420px;
   overflow-y: auto;
@@ -68,10 +125,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  scrollbar-width: thin;
-  scrollbar-color: #374151 transparent;
+  scroll-behavior: smooth;
 }
 
+/* Scrollbar */
 .chat-window::-webkit-scrollbar {
   width: 6px;
 }
@@ -80,11 +137,12 @@ body {
   border-radius: 8px;
 }
 
-/* ===============================
+/* =====================================================
    MESSAGES
-================================ */
+===================================================== */
 .message-row {
   display: flex;
+  width: 100%;
 }
 
 .message-row.user {
@@ -98,10 +156,10 @@ body {
 .message-bubble {
   max-width: 78%;
   padding: 10px 12px;
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1.55;
   border-radius: 12px;
-  animation: messageIn .25s ease;
+  animation: messageIn .2s ease;
 }
 
 /* User */
@@ -119,7 +177,6 @@ body {
   border-bottom-left-radius: 4px;
 }
 
-/* Message animation */
 @keyframes messageIn {
   from {
     opacity: 0;
@@ -131,28 +188,26 @@ body {
   }
 }
 
-/* ===============================
+/* =====================================================
    INPUT AREA
-================================ */
+===================================================== */
 .input-area {
   display: flex;
   gap: 8px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 #questionInput {
   flex: 1;
-  resize: none;
   height: 44px;
   padding: 10px 12px;
+  resize: none;
   border-radius: 10px;
   border: 1px solid #374151;
   background: #020617;
   color: #e5e7eb;
-  font-size: .9rem;
-  transition:
-    border .2s ease,
-    box-shadow .2s ease;
+  font-size: 0.9rem;
+  transition: border .2s ease, box-shadow .2s ease;
 }
 
 #questionInput:focus {
@@ -161,7 +216,6 @@ body {
   box-shadow: 0 0 0 2px rgba(37,99,235,.25);
 }
 
-/* Send button */
 #sendBtn {
   padding: 0 16px;
   border-radius: 10px;
@@ -170,9 +224,7 @@ body {
   color: #f9fafb;
   font-weight: 600;
   cursor: pointer;
-  transition:
-    transform .15s ease,
-    opacity .15s ease;
+  transition: transform .15s ease, opacity .15s ease;
 }
 
 #sendBtn:hover {
@@ -189,9 +241,9 @@ body {
   cursor: not-allowed;
 }
 
-/* ===============================
+/* =====================================================
    MOBILE POLISH
-================================ */
+===================================================== */
 @media (max-width: 640px) {
   body {
     align-items: stretch;
@@ -204,8 +256,21 @@ body {
     padding: 18px;
   }
 
+  .controls {
+    gap: 14px;
+  }
+
+  .control-group {
+    width: 100%;
+  }
+
+  .control-group select {
+    height: 44px;
+    font-size: 0.9rem;
+  }
+
   .chat-window {
-    height: 60vh; /* comfortable, not huge */
+    height: 60vh;
   }
 
   #questionInput {
@@ -349,6 +414,7 @@ body {
   transform: translateY(0);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
+
 
 
 
