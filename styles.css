@@ -277,31 +277,35 @@ body {
 ================================ */
 @media (max-width: 640px) {
 
+  /* Controls container */
   .controls {
-    padding: 12px;
-    gap: 10px;
+    padding: 10px 12px;     /* less vertical padding */
+    gap: 8px;
   }
 
+  /* Each dropdown group */
   .control-group {
-    gap: 3px;
+    gap: 2px;
   }
 
+  /* Labels: subtle, secondary */
   .control-group label {
-    font-size: 0.68rem;
-    letter-spacing: 0.2px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    opacity: 0.85;
   }
 
+  /* Dropdowns: compact but usable */
   .control-group select {
-    height: 34px;        /* 👈 sweet spot */
-    padding: 0 30px 0 9px;
-    font-size: 0.78rem;
-    border-radius: 7px;
+    height: 32px;           /* 👈 slightly smaller than before */
+    font-size: 0.76rem;
+    padding: 0 28px 0 8px;
+    border-radius: 6px;
 
-    background-position: right 8px center;
-    background-size: 14px;
+    background-position: right 7px center;
+    background-size: 13px;
   }
 }
-
   /* Chat section */
   .chat-section {
     padding: 12px;
@@ -473,6 +477,7 @@ body {
   transform: translateY(0);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
+
 
 
 
