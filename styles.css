@@ -272,19 +272,34 @@ body {
   }
 
   /* Controls feel airy */
+  /* ===============================
+   MOBILE – COMPACT DROPDOWNS
+================================ */
+@media (max-width: 640px) {
+
   .controls {
-    padding: 16px;
-    gap: 16px;
+    padding: 14px;       /* keep airy container */
+    gap: 12px;
   }
 
   .control-group {
-    width: 100%;
+    gap: 4px;
+  }
+
+  .control-group label {
+    font-size: 0.7rem;   /* smaller label */
   }
 
   .control-group select {
-    height: 46px;
-    font-size: 0.95rem;
+    height: 38px;        /* 👈 smaller height */
+    padding: 0 34px 0 10px;
+    font-size: 0.82rem;  /* compact text */
+    border-radius: 8px;  /* slightly tighter */
+    background-position: right 10px center;
+    background-size: 16px;
   }
+}
+
 
   /* Chat section */
   .chat-section {
@@ -457,6 +472,7 @@ body {
   transform: translateY(0);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
+
 
 
 
