@@ -190,7 +190,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 32px 16px;
-  background: linear-gradient(180deg, #020617, #020617);
+  background: #f8fafc;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -316,4 +316,5 @@ body {
   transform: translateY(0);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
+
 
