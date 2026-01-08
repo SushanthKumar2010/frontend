@@ -278,28 +278,29 @@ body {
 @media (max-width: 640px) {
 
   .controls {
-    padding: 14px;       /* keep airy container */
-    gap: 12px;
+    padding: 12px;
+    gap: 10px;
   }
 
   .control-group {
-    gap: 4px;
+    gap: 3px;
   }
 
   .control-group label {
-    font-size: 0.7rem;   /* smaller label */
+    font-size: 0.68rem;
+    letter-spacing: 0.2px;
   }
 
   .control-group select {
-    height: 38px;        /* 👈 smaller height */
-    padding: 0 34px 0 10px;
-    font-size: 0.82rem;  /* compact text */
-    border-radius: 8px;  /* slightly tighter */
-    background-position: right 10px center;
-    background-size: 16px;
+    height: 34px;        /* 👈 sweet spot */
+    padding: 0 30px 0 9px;
+    font-size: 0.78rem;
+    border-radius: 7px;
+
+    background-position: right 8px center;
+    background-size: 14px;
   }
 }
-
 
   /* Chat section */
   .chat-section {
@@ -472,6 +473,7 @@ body {
   transform: translateY(0);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
+
 
 
 
