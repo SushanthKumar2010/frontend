@@ -244,9 +244,14 @@ body {
 /* =====================================================
    MOBILE – PROPER EDGE SPACING
 ===================================================== */
+/* =====================================================
+   MOBILE – MORE SPACE + SHORTER CHAT
+===================================================== */
 @media (max-width: 640px) {
   body {
     align-items: stretch;
+
+    /* Safe + spacious */
     padding:
       env(safe-area-inset-top)
       env(safe-area-inset-right)
@@ -257,20 +262,19 @@ body {
   .app-container {
     max-width: 100%;
     height: 100%;
-    border-radius: 14px;
 
-    /* REAL mobile spacing */
-    margin: 12px;
-    padding: 20px;
+    /* 👈 MUCH MORE EDGE SPACE */
+    margin: 18px;
+    padding: 22px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    border-radius: 16px;
+    gap: 18px;
   }
 
+  /* Controls feel airy */
   .controls {
-    padding: 14px;
-    gap: 14px;
+    padding: 16px;
+    gap: 16px;
   }
 
   .control-group {
@@ -282,12 +286,14 @@ body {
     font-size: 0.95rem;
   }
 
+  /* Chat section */
   .chat-section {
     padding: 12px;
   }
 
+  /* 👇 SHORTER chat relative to screen */
   .chat-window {
-    height: 58vh; /* balanced: long but not overwhelming */
+    height: 48vh;   /* was ~60vh → now balanced */
     padding: 10px;
     gap: 14px;
   }
@@ -297,8 +303,9 @@ body {
     font-size: 0.95rem;
   }
 
+  /* Input area */
   .input-area {
-    gap: 10px;
+    gap: 12px;
   }
 
   #questionInput {
@@ -311,6 +318,7 @@ body {
     padding: 0 18px;
   }
 }
+
 
 
 
@@ -449,6 +457,7 @@ body {
   transform: translateY(0);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
+
 
 
 
