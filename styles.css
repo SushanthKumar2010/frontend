@@ -183,46 +183,73 @@ body {
 /* ===========================
    RESPONSIVE BIG LOGIN CARD
    =========================== */
-
+/* Page background */
 .login-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 32px 16px;
+  background: radial-gradient(circle at top, #020617, #000);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* BIG CARD */
+/* Card */
 .login-card {
   width: 100%;
-  max-width: 880px;              /* BIG on desktop */
-  background: #020617;
-  border-radius: 24px;           /* smooth & premium */
-  padding: 48px 56px;
-  border: 1px solid #1f2937;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  max-width: 900px;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(2, 6, 23, 0.95)
+  );
+  border-radius: 28px;
+  padding: 56px 64px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.75),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(14px);
 }
 
-/* Title */
-.login-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 12px;
+/* Header */
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #f9fafb;
+  letter-spacing: -0.02em;
+}
+
+.login-header p {
+  margin-top: 6px;
+  font-size: 1rem;
+  color: #9ca3af;
 }
 
 /* Divider */
 .login-divider {
   height: 1px;
-  background: #1f2937;
-  margin-bottom: 36px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #1f2937,
+    transparent
+  );
+  margin: 36px 0;
 }
 
-/* Form layout */
+/* Form */
 .login-form {
-  max-width: 520px;              /* form doesn't stretch too wide */
+  max-width: 480px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 26px;
 }
 
 /* Fields */
@@ -233,47 +260,58 @@ body {
 }
 
 .login-field label {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: #e5e7eb;
+  color: #cbd5f5;
 }
 
 .login-field input {
-  height: 52px;
+  height: 54px;
   border-radius: 999px;
-  padding: 0 20px;
+  padding: 0 22px;
   font-size: 1rem;
-  border: 1px solid #374151;
-  background: #020617;
+  border: 1px solid #334155;
+  background: rgba(2, 6, 23, 0.9);
   color: #e5e7eb;
+  transition: all 0.25s ease;
+}
+
+.login-field input::placeholder {
+  color: #64748b;
 }
 
 .login-field input:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+  border-color: #3b82f6;
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.25),
+    0 10px 30px rgba(59, 130, 246, 0.25);
+  background: #020617;
 }
 
 /* Button */
 .login-btn {
-  margin-top: 10px;
-  width: fit-content;
-  padding: 14px 34px;
+  margin-top: 12px;
+  align-self: center;
+  padding: 15px 44px;
   border-radius: 999px;
   border: none;
-  background: #2563eb;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: #f9fafb;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  justify-content:center;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
 }
 
 .login-btn:hover {
-  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
 }
 
-
-
-
-
+.login-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
