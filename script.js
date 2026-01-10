@@ -66,6 +66,7 @@ function appendMessage(role, text, meta) {
     const metaDiv = document.createElement("div");
     metaDiv.classList.add("meta-text");
     metaDiv.textContent = `${meta.class_level} • ${meta.subject} • ${meta.chapter}`;
+    metaDiv.textContent = ``;
     bubble.appendChild(metaDiv);
   }
 
@@ -187,4 +188,5 @@ async function login() {
   alert("✅ Login successful");
   // window.location.href = "dashboard.html";
 }
+
 
